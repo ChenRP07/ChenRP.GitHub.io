@@ -22,7 +22,7 @@ $E(R_{\mathcal{X}\mathcal{Y}}, t_{\mathcal{X}\mathcal{Y}})=\frac{1}{N}\sum_{i}^{
 ### Loss
 $Loss=\|R_{\mathcal{X}\mathcal{Y}}^TR_{\mathcal{X}\mathcal{Y}}^g-I\|^2+\|t_{\mathcal{X}\mathcal{Y}}-t_{\mathcal{X}\mathcal{Y}}^g\|^2+\lambda \|\theta\|^2$
 ## 实验
-<img src="experiment_1.jpg" width="400" height="300"/> <img src="experiment_2.jpg" width="400" height="300"/>
+<img src="experiment_1.jpg" width="300" height="300"/> <img src="experiment_2.jpg" width="300" height="300"/>
 
 ## idea
 可以用于patch之间的配准，在第二次compensation之后另外加一个网络再进行精细化配准？根据数据，ICP匹配MSE高的压缩率小，并且树的差异大。
