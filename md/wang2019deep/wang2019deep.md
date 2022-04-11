@@ -1,4 +1,5 @@
 # Deep Closest Point: Learning Representations for Point Cloud Registration.--ICCV'19
+[原文](../paper_pdf/Wang_Deep_Closest_Point_Learning_Representations_for_Point_Cloud_Registration_ICCV_2019_paper.pdf)
 ## 简介
 本文以深度学习的方法重构经典的ICP算法，提出了名为DCP的算法，用于对两个点云之间的刚性变换进行基于深度学习的预测。
 ## 问题陈述
@@ -18,3 +19,11 @@ $E(R_{\mathcal{X}\mathcal{Y}}, t_{\mathcal{X}\mathcal{Y}})=\frac{1}{N}\sum_{i}^{
 通过特征的匹配，该模型为每个$\mathcal{X}$内的点生成一个针对于$\mathcal{Y}$内点的概率即$m(x_i,\mathcal{Y})=softmax(\Phi_\mathcal{Y}\Phi_{x_i}^T)$
 ### SVD模块
 首先根据概率生成一个平均匹配点$\hat{y_i}=Y^Tm(x_i,\mathcal{Y})$，在获得了匹配点之后，就可以按照匹配点进行SVD分解并最终得到变换矩阵。
+### Loss
+$Loss=\|R_{\mathcal{X}\mathcal{Y}}^TR_{\mathcal{X}\mathcal{Y}}^g-I\|^2+\|t_{\mathcal{X}\mathcal{Y}}-t_{\mathcal{X}\mathcal{Y}}^g\|^2+\lambda \|\theta\|^2$
+## 实验
+<img src="experiment_1.jpg" width="400" height="300"/> <img src="experiment_2.jpg" width="400" height="300"/>
+
+## idea
+可以用于patch之间的配准，在第二次compensation之后另外加一个网络再进行精细化配准？根据数据，ICP匹配MSE高的压缩率小，并且树的差异大。
+主要是网络难以处理这么多的点。
